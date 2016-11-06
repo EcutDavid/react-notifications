@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples --inline --no-info",
+    "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples --inline --no-info --port 6060",
     "prepublish": "babel src --out-dir lib",
     "test": "karma start"
   },
