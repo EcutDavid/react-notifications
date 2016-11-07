@@ -2,15 +2,18 @@ import React, { Component, PropTypes } from 'react';
 
 import '../styles/Item.less'
 
-// using this component as a simple dump component only handle the appearance
+// Using this component as a simple dump component only handle the appearance
 export default class Item extends Component {
     static propTypes = {
         collapse: PropTypes.bool,
-        id: PropTypes.string,
+        id: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]).isRequired,
         level: PropTypes.number,
         label: PropTypes.string,
         indentSize: PropTypes.number,
-        // onClickNode: PropTypes.function
+        onClick: PropTypes.func
     }
 
     static defaultProps = {
@@ -21,10 +24,11 @@ export default class Item extends Component {
     }
 
     render() {
-        const {label, level, indentSize} = this.props;
+        const {label, level, id, indentSize, onClick} = this.props;
 
         return (
             <div
+                onClick={() => onClick(id)}
                 style={{ marginLeft: indentSize * level}}
             >
                 {label}

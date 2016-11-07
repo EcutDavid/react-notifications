@@ -19,7 +19,7 @@ export default class Main extends Component {
             <div>
             {
                 mockData.map((d, i) => (
-                    <Item {...d} key={i} />
+                    <Item {...d} key={i} id={i} onClick={id => console.log(id)}/>
                 ))
             }
             </div>
