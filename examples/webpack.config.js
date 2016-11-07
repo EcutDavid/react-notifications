@@ -1,8 +1,6 @@
 module.exports = {
     devtool: 'inline-source-map',
-
     entry: './examples/app',
-
     module: {
         loaders: [
             {
@@ -12,14 +10,19 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: 'style!css!less?strictMath&noIeCompat'
+                loader: 'style!css!less!postcss'
             }
         ]
     },
-
     resolve: {
         alias: {
             'demo': '../src/index'
         }
+    },
+    postcss: function () {
+        return [
+            require('precss'),
+            require('autoprefixer')
+        ]
     }
 };
