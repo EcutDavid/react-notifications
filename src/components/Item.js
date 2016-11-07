@@ -5,6 +5,8 @@ import '../styles/Item.less'
 // Using this component as a simple dump component only handle the appearance
 export default class Item extends Component {
     static propTypes = {
+        children: PropTypes.array,
+        className: PropTypes.string,
         collapse: PropTypes.bool,
         id: PropTypes.oneOfType([
             PropTypes.number,
@@ -24,14 +26,24 @@ export default class Item extends Component {
     }
 
     render() {
-        const {label, level, id, indentSize, onClick} = this.props;
+        const {
+            children,
+            className,
+            label,
+            level,
+            id,
+            indentSize,
+            onClick
+        } = this.props;
 
         return (
             <div
-                onClick={() => onClick(id)}
+                className={className || 'tree-node-item'}
+                onClick={() => onClick && onClick(id)}
                 style={{ marginLeft: indentSize * level}}
             >
-                {label}
+                <p>{label}</p>
+                { children }
             </div>
         );
     }
