@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import '../styles/Item.less'
+import '../styles/Item.less';
 
 // Using this component as a simple dump component only handle the appearance
 export default class Item extends Component {
@@ -29,6 +29,7 @@ export default class Item extends Component {
         const {
             children,
             className,
+            collapse,
             label,
             level,
             id,
@@ -40,10 +41,12 @@ export default class Item extends Component {
             <div
                 className={className || 'tree-node-item'}
                 onClick={() => onClick && onClick(id)}
-                style={{ marginLeft: indentSize * level}}
+                style={{ marginLeft: indentSize * level + 20}}
             >
                 <p>{label}</p>
-                { children }
+                <div style={{ display: collapse ? 'none' : 'block' }}>
+                    { children }
+                </div>
             </div>
         );
     }

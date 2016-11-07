@@ -1,29 +1,43 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Item from './components/Item';
 
-const mockData = [
-    { label: 'root', level: 0, id: 1 },
-    { label: 'node1', level: 1, id: 2 },
-    { label: 'node2', level: 1, id: 3 },
-    { label: 'node3', level: 2, id: 4 },
-    { label: 'nodeX', level: 2, id: 5 }
-]
+// TODO: refactor this part using mock data generator.
+const mockRawkData = {
+    label: 'root', level: 0, id: 1, children: [
+        { label: 'node1', level: 1, id: 2 },
+        { label: 'node2', level: 1, id: 3, children: [
+            { label: 'node3', level: 2, id: 4 },
+            { label: 'nodeX', level: 2, id: 5 , children: [
+                { label: 'nodeN', level: 2, id: 6 },
+                { label: 'nodeY', level: 2, id: 7 }
+            ]}
+        ]}
+    ]
+};
 
 export default class Main extends Component {
-    static propTypes = {
-
-    }
-
-    // TODO: Repoduce these mock components using DFS for sure.
-    render() {
+    rednerTree(node, key) {
+        const { children, collapse, label, level, id } = node;
         return (
-            <Item {...mockData[0]}>
-                <Item {...mockData[1]} />
-                <Item {...mockData[2]}>
-                    <Item {...mockData[3]} />
-                    <Item {...mockData[4]} />
-                </Item>
+            <Item
+                collapse={collapse}
+                label={label}
+                level={level}
+                id={id}
+                key={key}
+                onClick={() => {
+                    node.collapse = false;
+                    this.forceUpdate();
+                }}
+            >
+            {
+                children && children.map((d, i) => this.rednerTree(d, i))
+            }
             </Item>
         )
+    }
+
+    render() {
+        return this.rednerTree(mockRawkData);
     }
 }
