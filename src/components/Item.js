@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+import '../styles/Item.less'
 
 // using this component as a simple dump component only handle the appearance
 export default class Item extends Component {
