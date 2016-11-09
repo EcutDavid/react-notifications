@@ -25,8 +25,9 @@ export default class Main extends Component {
                 level={level}
                 id={id}
                 key={key}
-                onClick={() => {
-                    node.collapse = false;
+                onClick={e => {
+                    e.stopPropagation();
+                    node.collapse = node.collapse === undefined ? false : !node.collapse;
                     this.forceUpdate();
                 }}
             >

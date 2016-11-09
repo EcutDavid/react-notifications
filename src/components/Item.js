@@ -40,7 +40,7 @@ export default class Item extends Component {
         return (
             <div
                 className={className || 'tree-node-item'}
-                onClick={() => onClick && onClick(id)}
+                onClick={(e) => onClick && onClick(e, id)}
                 style={{ marginLeft: indentSize * level + 20}}
             >
                 <p>{label}</p>
