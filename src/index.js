@@ -18,16 +18,17 @@ const mockRawData = {
 export default class Main extends Component {
     rednerTree(node, key) {
         const { children, collapse, label, level, id } = node;
+        const { defaultExpand } = this.props;
         return (
             <Item
-                collapse={collapse}
+                collapse={ collapse === undefined ? !defaultExpand : collapse }
                 label={label}
                 level={level}
                 id={id}
                 key={key}
                 onClick={e => {
                     e.stopPropagation();
-                    node.collapse = node.collapse === undefined ? false : !node.collapse;
+                    node.collapse = node.collapse === undefined ? defaultExpand : !node.collapse;
                     this.forceUpdate();
                 }}
             >
