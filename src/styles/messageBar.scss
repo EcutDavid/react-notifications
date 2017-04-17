@@ -1,0 +1,26 @@
+$padding: 10px;
+
+.messageBar {
+    border: 1px solid grey;
+    border-radius: $padding;
+    margin-bottom: 10px;
+    padding: $padding;
+    .message-header {
+        &>p {
+            display: inline-block;
+            margin: 0;
+        }
+
+        i.close {
+            display: inline-block;
+            transform: rotate(45deg);
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                color: skyblue;
+            }
+        }
+    }
+}
