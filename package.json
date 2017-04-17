@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples --inline --no-info --port 6060",
-    "prepublish": "babel src --out-dir lib",
+    "prepublish-not-using": "babel src --out-dir lib",
     "test": "karma start"
   },
   "repository": {
@@ -40,8 +40,8 @@
     "karma-mocha": "^1.2.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
     "mocha": "^3.1.2",
     "node-libs-browser": "^0.5.2",
     "postcss": "^5.2.5",
@@ -56,6 +56,5 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
-  },
-  "dependencies": {}
+  }
 }

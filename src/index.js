@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Item from './components/Item';
 
+import './styles/control.scss';
+
 const mockRawData = {
     label: 'rootNode', level: 0, id: 1, children: [
         { label: 'node1', level: 1, id: 2 },

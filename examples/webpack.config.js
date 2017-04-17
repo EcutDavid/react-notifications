@@ -9,8 +9,8 @@ module.exports = {
                 loader: 'babel'
             },
             {
-                test: /\.less$/,
-                loader: 'style!css!less!postcss'
+                test: /\.scss$/,
+                loader: 'style!css!sass!postcss'
             }
         ]
     },
