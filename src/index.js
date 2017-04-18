@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import MessageBar from './components/messageBar';
 
+import './styles/control.scss';
+
 export default class Main extends Component {
     render() {
-        const { capacity, notifications, onClose } = this.props;
+        const { capacity, style, notifications, onClose } = this.props;
 
-        return (
-            <div>
+        return (notifications.length && capacity) ? (
+            <div className='notifications-control' style={style}>
             {
                 notifications.slice(0, capacity).map((d, i) => (
                     <MessageBar
@@ -17,6 +19,6 @@ export default class Main extends Component {
                 ))
             }
             </div>
-        )
+        ) : null;
     }
 }

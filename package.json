@@ -1,8 +1,8 @@
 {
-  "name": "@davidguan/redux-notifications",
+  "name": "@davidguan/react-notifications",
   "version": "0.0.1",
   "description": "",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples --inline --no-info --port 6060",
     "prepublish-not-using": "babel src --out-dir lib",
