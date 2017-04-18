@@ -1,26 +1,75 @@
-$padding: 10px;
+$infoColor: #3adb76;
+$warningColor: #ffae00;
+$errorColor: #cc4b37;
+
+@keyframes barFadeIn {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 9999px;
+  }
+}
 
 .messageBar {
-    border: 1px solid grey;
-    border-radius: $padding;
+    width: 240px;
+    border-radius: 4px;
     margin-bottom: 10px;
-    padding: $padding;
+    overflow: hidden;
+    padding: 8px;
+    background-color: #fff;
+    animation: barFadeIn 4s ease-in-out;
+    transform-origin: top;
+
     .message-header {
         &>p {
-            display: inline-block;
-            margin: 0;
+          border: 2px solid;
+          border-radius: 9px;
+          display: inline-block;
+          margin: 0;
+          font-weight: bold;
+          padding: 4px;
+        }
+
+        &.info>p {
+            border-color: $infoColor;
+            color: $infoColor;
+        }
+
+        &.warning>p {
+            border-color: $warningColor;
+            color: $warningColor;
+        }
+
+        &.error>p {
+            border-color: $errorColor;
+            color: $errorColor;
         }
 
         i.close {
             display: inline-block;
-            transform: rotate(45deg);
-            font-size: 30px;
+            transform: rotate(39deg) translateY(-8px);
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
+            float: right;
+            color: grey;
+            padding-right: 3px;
 
             &:hover {
-                color: skyblue;
+                color: #000;
             }
         }
+    }
+    &>article {
+      padding-left: 2px;
+      margin-top: 10px;
+      color: #898989;
     }
 }

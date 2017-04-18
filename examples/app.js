@@ -17,6 +17,14 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {notifications: MOCK_NOTIFICATIONS};
+        setInterval(() => {
+            const { notifications } = this.state;
+            const newNotifications = notifications.concat({
+                type: 'error',
+                message: `Oooops ${notifications.length}`
+            })
+            this.setState({notifications: newNotifications});
+        }, 1000);
     }
 
     oncloseHandle(index) {
@@ -31,7 +39,7 @@ class App extends React.Component {
     render() {
      return (
          <Demo
-             capacity={3}
+             capacity={10}
              notifications={this.state.notifications}
              onClose={this.oncloseHandle.bind(this)}
          />

@@ -8,7 +8,7 @@ export default class MessageBar extends Component {
 
         return (
             <div className='messageBar'>
-                <header className='message-header'>
+                <header className={`message-header ${type}`}>
                     <p>{type}</p>
                     <i
                         className='close'
