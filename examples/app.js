@@ -22,7 +22,7 @@ class App extends React.Component {
             const newNotifications = notifications.concat({
                 type: 'error',
                 message: `Oooops ${notifications.length}`
-            })
+            });
             this.setState({notifications: newNotifications});
         }, 1000);
     }
